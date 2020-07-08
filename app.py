@@ -7,10 +7,10 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     
-    conn = http.client.HTTPConnection("mule-cicd-demo-dev1.us-e2.cloudhub.io")
+    conn = http.client.HTTPConnection("test-exp-heroku.us-e2.cloudhub.io")
     payload = ''
-    headers = {}
-    conn.request("GET", "/api/student", payload, headers)
+    headers = {'client_id': 'test','client_secret': 'test'}
+    conn.request("GET", "/api/test/A00000000000000001", payload, headers)
     res = conn.getresponse()
     data = res.read()
     print(data.decode("utf-8"))
